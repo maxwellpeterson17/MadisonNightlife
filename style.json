@@ -1,7 +1,110 @@
-/* 
-  style.strings
-  Madison Bar Specials & Nightlife
-
-  Created by Vivek Malani on 09/12/17.
-  Copyright © 2017 VivekMalani. All rights reserved.
-*/
+ [
+  {
+  "featureType": "administrative",
+  "stylers": [
+              {
+              "color": "#808080"
+              }
+              ]
+  },
+  {
+  "featureType": "administrative",
+  "elementType": "labels.text",
+  "stylers": [
+              {
+              "color": "#ffffff"
+              },
+              {
+              "weight": 0.5
+              }
+              ]
+  },
+  {
+  "featureType": "landscape",
+  "stylers": [
+              {
+              "color": "#808080"
+              }
+              ]
+  },
+  /*{
+  "featureType": "landscape",
+  "elementType": "labels.text",
+  "stylers": [
+              {
+              "color": "#ffffff"
+              },
+              {
+              "weight": 0.5
+              }
+              ]
+  },*/
+  {
+  "featureType": "poi",
+  "stylers": [
+              {
+              "color": "#808080"
+              }
+              ]
+  },
+  {
+  "featureType": "poi",
+  "elementType": "labels.text",
+  "stylers": [
+              {
+              "color": "#ffffff"
+              },
+              {
+              "weight": 0.5
+              }
+              ]
+  },
+  {
+  "featureType": "road",
+  "stylers": [
+              {
+              "color": "#a01100"
+              }
+              ]
+  },
+  {
+  "featureType": "road",
+  "elementType": "labels.text",
+  "stylers": [
+              {
+              "color": "#ffffff"
+              },
+              {
+              "weight": 0.5
+              }
+              ]
+  },
+  {
+  "featureType": "transit",
+  "stylers": [
+              {
+              "color": "#808080"
+              }
+              ]
+  },
+  {
+  "featureType": "water",
+  "stylers": [
+              {
+              "color": "#000080"
+              }
+              ]
+  },
+  {
+  "featureType": "water",
+  "elementType": "labels.text",
+  "stylers": [
+              {
+              "color": "#ffffff"
+              },
+              {
+              "weight": 0.5
+              }
+              ]
+  }
+  ]

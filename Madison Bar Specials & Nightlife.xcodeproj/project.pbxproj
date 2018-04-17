@@ -7,21 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		230887301FCE94CA0042861E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2308872F1FCE94CA0042861E /* Constant.swift */; };
+		230887321FCEAF2C0042861E /* DaysDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230887311FCEAF2C0042861E /* DaysDetailsVC.swift */; };
+		230887341FCEAF390042861E /* BarDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230887331FCEAF390042861E /* BarDetailsVC.swift */; };
+		230887361FCEE8BD0042861E /* AddEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230887351FCEE8BD0042861E /* AddEventVC.swift */; };
+		230E08931FDBA81E00D0188A /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 230E08921FDBA81E00D0188A /* style.json */; };
 		234A15D31FCE60B5002D5A46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A15D21FCE60B5002D5A46 /* AppDelegate.swift */; };
-		234A15D51FCE60B5002D5A46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A15D41FCE60B5002D5A46 /* ViewController.swift */; };
+		234A15D51FCE60B5002D5A46 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A15D41FCE60B5002D5A46 /* ListVC.swift */; };
 		234A15D81FCE60B5002D5A46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234A15D61FCE60B5002D5A46 /* Main.storyboard */; };
 		234A15DA1FCE60B5002D5A46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 234A15D91FCE60B5002D5A46 /* Assets.xcassets */; };
 		234A15DD1FCE60B5002D5A46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234A15DB1FCE60B5002D5A46 /* LaunchScreen.storyboard */; };
+		234A15E51FCE67D7002D5A46 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A15E41FCE67D7002D5A46 /* MapVC.swift */; };
+		234A15E71FCE67E8002D5A46 /* EventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A15E61FCE67E8002D5A46 /* EventVC.swift */; };
+		234A15E91FCE67FC002D5A46 /* ContactUsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A15E81FCE67FC002D5A46 /* ContactUsVC.swift */; };
+		234A6CBD1FE389C60081A9AF /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 234A6CBC1FE389C60081A9AF /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		234A6CC01FE398850081A9AF /* FeaturedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234A6CBF1FE398850081A9AF /* FeaturedVC.swift */; };
+		2364F2381FD7D2C9000DE6DD /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2364F2371FD7D2C9000DE6DD /* GoogleMaps.bundle */; };
+		23B03F5A1FD2B467001EF1EB /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B03F591FD2B467001EF1EB /* CheckBox.swift */; };
+		23EBDF501FE6316F00BE2967 /* AgeVerificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23EBDF4F1FE6316F00BE2967 /* AgeVerificationVC.swift */; };
+		23EBDF521FE63B1100BE2967 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23EBDF511FE63B1100BE2967 /* GoogleService-Info.plist */; };
+		3AE94038AD14CB78A2342422 /* Pods_Madison_Bar_Specials___Nightlife.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C461F5D6C34997AB7071C22 /* Pods_Madison_Bar_Specials___Nightlife.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2308872F1FCE94CA0042861E /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		230887311FCEAF2C0042861E /* DaysDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysDetailsVC.swift; sourceTree = "<group>"; };
+		230887331FCEAF390042861E /* BarDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarDetailsVC.swift; sourceTree = "<group>"; };
+		230887351FCEE8BD0042861E /* AddEventVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventVC.swift; sourceTree = "<group>"; };
+		230E08921FDBA81E00D0188A /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
 		234A15CF1FCE60B5002D5A46 /* Madison Bar Specials & Nightlife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Madison Bar Specials & Nightlife.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		234A15D21FCE60B5002D5A46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		234A15D41FCE60B5002D5A46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		234A15D41FCE60B5002D5A46 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		234A15D71FCE60B5002D5A46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		234A15D91FCE60B5002D5A46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		234A15DC1FCE60B5002D5A46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		234A15DE1FCE60B5002D5A46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		234A15E41FCE67D7002D5A46 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		234A15E61FCE67E8002D5A46 /* EventVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventVC.swift; sourceTree = "<group>"; };
+		234A15E81FCE67FC002D5A46 /* ContactUsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsVC.swift; sourceTree = "<group>"; };
+		234A6CBB1FE389C60081A9AF /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
+		234A6CBC1FE389C60081A9AF /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
+		234A6CBE1FE389D90081A9AF /* Madison-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Madison-Bridging-Header.h"; sourceTree = "<group>"; };
+		234A6CBF1FE398850081A9AF /* FeaturedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedVC.swift; sourceTree = "<group>"; };
+		2359DDD91FE7CA4E00B6F284 /* Madison Bar Specials & Nightlife.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Madison Bar Specials & Nightlife.entitlements"; sourceTree = "<group>"; };
+		2364F1FF1FD7CC59000DE6DD /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		2364F2011FD7CC6F000DE6DD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2364F2031FD7CC78000DE6DD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2364F2051FD7CC80000DE6DD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2364F2071FD7CC8B000DE6DD /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		2364F2091FD7CC93000DE6DD /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		2364F20B1FD7CCAE000DE6DD /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		2364F20D1FD7CCBD000DE6DD /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		2364F20F1FD7CCCB000DE6DD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		2364F2111FD7CCD6000DE6DD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		2364F2131FD7CCDC000DE6DD /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		2364F2151FD7CCE3000DE6DD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2364F2171FD7CCEB000DE6DD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2364F2191FD7CCF4000DE6DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2364F2371FD7D2C9000DE6DD /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
+		23B03F591FD2B467001EF1EB /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		23EBDF4F1FE6316F00BE2967 /* AgeVerificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgeVerificationVC.swift; sourceTree = "<group>"; };
+		23EBDF511FE63B1100BE2967 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2C461F5D6C34997AB7071C22 /* Pods_Madison_Bar_Specials___Nightlife.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Madison_Bar_Specials___Nightlife.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		360A984F916A268DCB9A89B8 /* Pods-Madison Bar Specials & Nightlife.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Madison Bar Specials & Nightlife.release.xcconfig"; path = "Pods/Target Support Files/Pods-Madison Bar Specials & Nightlife/Pods-Madison Bar Specials & Nightlife.release.xcconfig"; sourceTree = "<group>"; };
+		D752F6ECB5FB7FA66C1771B3 /* Pods-Madison Bar Specials & Nightlife.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Madison Bar Specials & Nightlife.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Madison Bar Specials & Nightlife/Pods-Madison Bar Specials & Nightlife.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE94038AD14CB78A2342422 /* Pods_Madison_Bar_Specials___Nightlife.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,8 +88,13 @@
 		234A15C61FCE60B5002D5A46 = {
 			isa = PBXGroup;
 			children = (
+				230E08921FDBA81E00D0188A /* style.json */,
+				234A6CBA1FE389310081A9AF /* GetUDID */,
+				2364F2371FD7D2C9000DE6DD /* GoogleMaps.bundle */,
 				234A15D11FCE60B5002D5A46 /* Madison Bar Specials & Nightlife */,
 				234A15D01FCE60B5002D5A46 /* Products */,
+				2EF3D664B233E9DEB6ABA695 /* Pods */,
+				543ED755FF9CAFE5B1293168 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +109,67 @@
 		234A15D11FCE60B5002D5A46 /* Madison Bar Specials & Nightlife */ = {
 			isa = PBXGroup;
 			children = (
+				2359DDD91FE7CA4E00B6F284 /* Madison Bar Specials & Nightlife.entitlements */,
+				2308872F1FCE94CA0042861E /* Constant.swift */,
 				234A15D21FCE60B5002D5A46 /* AppDelegate.swift */,
-				234A15D41FCE60B5002D5A46 /* ViewController.swift */,
+				23EBDF4F1FE6316F00BE2967 /* AgeVerificationVC.swift */,
+				234A15D41FCE60B5002D5A46 /* ListVC.swift */,
+				230887311FCEAF2C0042861E /* DaysDetailsVC.swift */,
+				230887331FCEAF390042861E /* BarDetailsVC.swift */,
+				234A15E41FCE67D7002D5A46 /* MapVC.swift */,
+				234A6CBF1FE398850081A9AF /* FeaturedVC.swift */,
+				234A15E61FCE67E8002D5A46 /* EventVC.swift */,
+				230887351FCEE8BD0042861E /* AddEventVC.swift */,
+				234A15E81FCE67FC002D5A46 /* ContactUsVC.swift */,
+				23B03F591FD2B467001EF1EB /* CheckBox.swift */,
 				234A15D61FCE60B5002D5A46 /* Main.storyboard */,
 				234A15D91FCE60B5002D5A46 /* Assets.xcassets */,
 				234A15DB1FCE60B5002D5A46 /* LaunchScreen.storyboard */,
 				234A15DE1FCE60B5002D5A46 /* Info.plist */,
+				23EBDF511FE63B1100BE2967 /* GoogleService-Info.plist */,
 			);
 			path = "Madison Bar Specials & Nightlife";
+			sourceTree = "<group>";
+		};
+		234A6CBA1FE389310081A9AF /* GetUDID */ = {
+			isa = PBXGroup;
+			children = (
+				234A6CBB1FE389C60081A9AF /* OpenUDID.h */,
+				234A6CBC1FE389C60081A9AF /* OpenUDID.m */,
+				234A6CBE1FE389D90081A9AF /* Madison-Bridging-Header.h */,
+			);
+			name = GetUDID;
+			sourceTree = "<group>";
+		};
+		2EF3D664B233E9DEB6ABA695 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D752F6ECB5FB7FA66C1771B3 /* Pods-Madison Bar Specials & Nightlife.debug.xcconfig */,
+				360A984F916A268DCB9A89B8 /* Pods-Madison Bar Specials & Nightlife.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		543ED755FF9CAFE5B1293168 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2364F2191FD7CCF4000DE6DD /* UIKit.framework */,
+				2364F2171FD7CCEB000DE6DD /* SystemConfiguration.framework */,
+				2364F2151FD7CCE3000DE6DD /* QuartzCore.framework */,
+				2364F2131FD7CCDC000DE6DD /* OpenGLES.framework */,
+				2364F2111FD7CCD6000DE6DD /* libz.tbd */,
+				2364F20F1FD7CCCB000DE6DD /* libc++.tbd */,
+				2364F20D1FD7CCBD000DE6DD /* ImageIO.framework */,
+				2364F20B1FD7CCAE000DE6DD /* GLKit.framework */,
+				2364F2091FD7CC93000DE6DD /* CoreText.framework */,
+				2364F2071FD7CC8B000DE6DD /* CoreTelephony.framework */,
+				2364F2051FD7CC80000DE6DD /* CoreLocation.framework */,
+				2364F2031FD7CC78000DE6DD /* CoreGraphics.framework */,
+				2364F2011FD7CC6F000DE6DD /* CoreData.framework */,
+				2364F1FF1FD7CC59000DE6DD /* Accelerate.framework */,
+				2C461F5D6C34997AB7071C22 /* Pods_Madison_Bar_Specials___Nightlife.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 234A15E11FCE60B5002D5A46 /* Build configuration list for PBXNativeTarget "Madison Bar Specials & Nightlife" */;
 			buildPhases = (
+				7662F4A4C8DE2099957F70FD /* [CP] Check Pods Manifest.lock */,
 				234A15CB1FCE60B5002D5A46 /* Sources */,
 				234A15CC1FCE60B5002D5A46 /* Frameworks */,
 				234A15CD1FCE60B5002D5A46 /* Resources */,
+				6E1328347169E95360D4EB6C /* [CP] Embed Pods Frameworks */,
+				659E4D6A7523C167D3D76B83 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,7 +207,16 @@
 				TargetAttributes = {
 					234A15CE1FCE60B5002D5A46 = {
 						CreatedOnToolsVersion = 8.3.3;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 8592PABHNQ;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -124,20 +244,109 @@
 			buildActionMask = 2147483647;
 			files = (
 				234A15DD1FCE60B5002D5A46 /* LaunchScreen.storyboard in Resources */,
+				230E08931FDBA81E00D0188A /* style.json in Resources */,
+				23EBDF521FE63B1100BE2967 /* GoogleService-Info.plist in Resources */,
 				234A15DA1FCE60B5002D5A46 /* Assets.xcassets in Resources */,
 				234A15D81FCE60B5002D5A46 /* Main.storyboard in Resources */,
+				2364F2381FD7D2C9000DE6DD /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		659E4D6A7523C167D3D76B83 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Madison Bar Specials & Nightlife/Pods-Madison Bar Specials & Nightlife-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Madison Bar Specials & Nightlife/Pods-Madison Bar Specials & Nightlife-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E1328347169E95360D4EB6C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Madison Bar Specials & Nightlife/Pods-Madison Bar Specials & Nightlife-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CCBottomRefreshControl/CCBottomRefreshControl.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/TOCropViewController/TOCropViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CCBottomRefreshControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TOCropViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Madison Bar Specials & Nightlife/Pods-Madison Bar Specials & Nightlife-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7662F4A4C8DE2099957F70FD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Madison Bar Specials & Nightlife-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		234A15CB1FCE60B5002D5A46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				234A15D51FCE60B5002D5A46 /* ViewController.swift in Sources */,
+				234A6CC01FE398850081A9AF /* FeaturedVC.swift in Sources */,
+				234A15D51FCE60B5002D5A46 /* ListVC.swift in Sources */,
+				230887341FCEAF390042861E /* BarDetailsVC.swift in Sources */,
+				234A6CBD1FE389C60081A9AF /* OpenUDID.m in Sources */,
+				234A15E51FCE67D7002D5A46 /* MapVC.swift in Sources */,
+				23EBDF501FE6316F00BE2967 /* AgeVerificationVC.swift in Sources */,
 				234A15D31FCE60B5002D5A46 /* AppDelegate.swift in Sources */,
+				23B03F5A1FD2B467001EF1EB /* CheckBox.swift in Sources */,
+				234A15E71FCE67E8002D5A46 /* EventVC.swift in Sources */,
+				230887361FCEE8BD0042861E /* AddEventVC.swift in Sources */,
+				230887321FCEAF2C0042861E /* DaysDetailsVC.swift in Sources */,
+				234A15E91FCE67FC002D5A46 /* ContactUsVC.swift in Sources */,
+				230887301FCE94CA0042861E /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +418,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "Madison-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -251,6 +461,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Madison-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -258,24 +469,48 @@
 		};
 		234A15E21FCE60B5002D5A46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D752F6ECB5FB7FA66C1771B3 /* Pods-Madison Bar Specials & Nightlife.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Madison Bar Specials & Nightlife/Madison Bar Specials & Nightlife.entitlements";
+				DEVELOPMENT_TEAM = 8592PABHNQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Madison Bar Specials & Nightlife/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.myprivacytools.ios.HideMyIP.Madison-Bar-Specials---Nightlife";
+				PRODUCT_BUNDLE_IDENTIFIER = NoTow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c0bc65d3-6c6c-4643-96cb-47c91c0b7609";
+				PROVISIONING_PROFILE_SPECIFIER = dev_FinalNoTow_9;
+				SWIFT_OBJC_BRIDGING_HEADER = "Madison-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		234A15E31FCE60B5002D5A46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 360A984F916A268DCB9A89B8 /* Pods-Madison Bar Specials & Nightlife.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Madison Bar Specials & Nightlife/Madison Bar Specials & Nightlife.entitlements";
+				DEVELOPMENT_TEAM = 8592PABHNQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Madison Bar Specials & Nightlife/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.myprivacytools.ios.HideMyIP.Madison-Bar-Specials---Nightlife";
+				PRODUCT_BUNDLE_IDENTIFIER = NoTow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c0bc65d3-6c6c-4643-96cb-47c91c0b7609";
+				PROVISIONING_PROFILE_SPECIFIER = dev_FinalNoTow_9;
+				SWIFT_OBJC_BRIDGING_HEADER = "Madison-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -299,6 +534,7 @@
 				234A15E31FCE60B5002D5A46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

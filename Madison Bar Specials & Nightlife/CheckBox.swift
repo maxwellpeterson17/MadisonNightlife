@@ -15,7 +15,7 @@ public final class CheckBox: UIControl {
     public var titleColor: UIColor = UIColor.black { didSet { setupTitleLabel() } }
     
     @IBInspectable
-    public var font: UIFont = UIFont.systemFont(ofSize: 14) { didSet { setupTitleLabel() } }
+    public var font: UIFont = UIFont.systemFont(ofSize: 15) { didSet { setupTitleLabel() } }
     
     @IBInspectable
     public var titleAlignment: NSTextAlignment = NSTextAlignment.left { didSet { setupTitleLabel() } }
@@ -150,9 +150,21 @@ public final class CheckBox: UIControl {
     }
     
     private func setupTitleLabel() -> Void {
-        lblTitle.text = title
+        
+        //print(title)
         lblTitle.textColor = titleColor
         lblTitle.font = font
+        if title == "Tickets Needed?"
+        {
+            let AttString = NSMutableAttributedString(string: "Tickets Needed? (optional)")
+            AttString.addAttributes([NSForegroundColorAttributeName:UIColor.white], range: NSRange(location: "Tickets Needed? ".count, length: "(optional)".count))
+            lblTitle.attributedText = AttString
+//            lblTitle.text = title
+        }
+        else
+        {
+            lblTitle.text = title
+        }
         lblTitle.textAlignment = titleAlignment
     }
     

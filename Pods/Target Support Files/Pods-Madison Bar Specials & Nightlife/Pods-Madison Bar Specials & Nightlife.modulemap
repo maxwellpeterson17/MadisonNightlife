@@ -1,0 +1,6 @@
+framework module Pods_Madison_Bar_Specials___Nightlife {
+  umbrella header "Pods-Madison Bar Specials & Nightlife-umbrella.h"
+
+  export *
+  module * { export * }
+}

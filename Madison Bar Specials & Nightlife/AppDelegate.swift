@@ -7,18 +7,68 @@
 //
 
 import UIKit
-
+import IQKeyboardManagerSwift
+import GoogleMaps
+import GooglePlaces
+import UserNotifications
+import Firebase
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        IQKeyboardManager.sharedManager().enable=true
+        GMSServices.provideAPIKey("AIzaSyCsScs8FR_AGMvJSqjNcbj5oeWVRgNNFwc")
+        GMSPlacesClient.provideAPIKey("AIzaSyCsScs8FR_AGMvJSqjNcbj5oeWVRgNNFwc")
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().barTintColor = AppThemeColor
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        UINavigationBar.appearance().isTranslucent = false
+        UITabBar.appearance().shadowImage = UIImage()
+        UISearchBar.appearance().barStyle = .black
+        
+        FirebaseApp.configure()
+        NotificationCenter.default.addObserver(self,selector: #selector(tokenRefreshNotification(_:)),name: NSNotification.Name.InstanceIDTokenRefresh,object: nil)
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            // For iOS 10 data message (sent via FCM
+            //Messaging.messaging().remoteMessageDelegate = self
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
+        
+//        if Default.value(forKey: "CheckStudent") != nil
+//        {
+//            let Stry = UIStoryboard(name: "Main", bundle: nil)
+//            let ViewController = Stry.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
+//            window?.rootViewController = ViewController
+//            window?.makeKeyAndVisible()
+//        }
         return true
     }
 
+    @objc func tokenRefreshNotification(_ notification: Foundation.Notification) {
+        if let refreshedToken = InstanceID.instanceID().token() {
+            Token = refreshedToken
+        }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().setAPNSToken(deviceToken, type: .prod)
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

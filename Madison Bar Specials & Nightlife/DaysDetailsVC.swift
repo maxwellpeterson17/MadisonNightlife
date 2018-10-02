@@ -90,7 +90,7 @@ class DaysDetailsVC: UIViewController, NVActivityIndicatorViewable, UITableViewD
         Alamofire.request("\(API_URL)getBarList", method: .get).responseJSON(completionHandler: { (response) in
             if response.result.error != nil
             {
-                ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
+                //ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
             }
             else
             {

@@ -14,6 +14,7 @@ import SDWebImage
 import GoogleMaps
 class MapVC: UIViewController, MKMapViewDelegate, NVActivityIndicatorViewable, GMSMapViewDelegate {
 
+    //@IBOutlet var background: UIImageView!
     @IBOutlet var googleMap: GMSMapView!
     @IBOutlet var MapView: MKMapView!
     var eventTempAry = NSMutableArray()
@@ -67,7 +68,8 @@ class MapVC: UIViewController, MKMapViewDelegate, NVActivityIndicatorViewable, G
         }
         else if EventListAry.count == 0
         {
-            startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
+            //startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
+            //background.isHidden = false
             EventsCallAPI()
         }
     }
@@ -79,12 +81,14 @@ class MapVC: UIViewController, MKMapViewDelegate, NVActivityIndicatorViewable, G
         let calendar = Calendar.current
         let date = calendar.date(byAdding: .hour, value: -4, to: Date())
         let day = Formater.string(from: date!)
-        startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
+        //startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
+        //background.isHidden = false
         Alamofire.request("\(API_URL)getBarList/\(day.lowercased())", method: .get).responseJSON(completionHandler: { (response) in
             if response.result.error != nil
             {
-                ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
-                self.stopAnimating()
+                //ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
+                //self.stopAnimating()
+                //self.background.isHidden = true
             }
             else
             {
@@ -105,7 +109,8 @@ class MapVC: UIViewController, MKMapViewDelegate, NVActivityIndicatorViewable, G
                 }
                 else
                 {
-                    self.stopAnimating()
+                    //self.stopAnimating()
+                    //self.background.isHidden = true
                     DispatchQueue.main.async {
                         self.LoadDataOnMap()
                     }
@@ -119,7 +124,7 @@ class MapVC: UIViewController, MKMapViewDelegate, NVActivityIndicatorViewable, G
         Alamofire.request("\(API_URL)getEventList", method: .get).responseJSON(completionHandler: { (response) in
             if response.result.error != nil
             {
-                ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
+                //ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
             }
             else
             {
@@ -152,7 +157,8 @@ class MapVC: UIViewController, MKMapViewDelegate, NVActivityIndicatorViewable, G
             }
             DispatchQueue.main.async {
                 self.LoadDataOnMap()
-                self.stopAnimating()
+                //self.background.isHidden = true
+                //self.stopAnimating()
             }
         })
     }
@@ -405,13 +411,13 @@ class MapVC: UIViewController, MKMapViewDelegate, NVActivityIndicatorViewable, G
     {
         if str == "BarEvent"
         {
-            return #imageLiteral(resourceName: "orange_pin")
+            return #imageLiteral(resourceName: "bar_event")
         }
-        else if str == "GreekLife"
+        else if str == "Philanthropy"
         {
             return #imageLiteral(resourceName: "greek_life_yellow")
         }
-        else if str == "HouseParty"
+        else if str == "Party"
         {
             return #imageLiteral(resourceName: "house_party_blue")
         }
@@ -423,9 +429,13 @@ class MapVC: UIViewController, MKMapViewDelegate, NVActivityIndicatorViewable, G
         {
             return #imageLiteral(resourceName: "sports_green")
         }
-        else if str == "Comedy" || str == "Theater"
+        else if str == "Theater"
         {
             return #imageLiteral(resourceName: "comedy_theater_pink")
+        }
+        else if str == "Comedy"
+        {
+            return #imageLiteral(resourceName: "comedy")
         }
         else
         {

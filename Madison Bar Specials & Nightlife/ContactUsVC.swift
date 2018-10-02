@@ -11,6 +11,7 @@ import NVActivityIndicatorView
 import Alamofire
 class ContactUsVC: UIViewController, UITextViewDelegate, NVActivityIndicatorViewable {
 
+   // @IBOutlet var background: UIImageView!
     @IBOutlet var LBL: UILabel!
     @IBOutlet var BackScroll: UIScrollView!
     @IBOutlet var SubmitBTN: UIButton!
@@ -28,17 +29,17 @@ class ContactUsVC: UIViewController, UITextViewDelegate, NVActivityIndicatorView
         MessageText.layer.cornerRadius=5.0
         
         DispatchQueue.main.async {
-            self.LBL.numberOfLines = 0
-            self.LBL.sizeToFit()
-            self.MessageText.frame.origin.y = self.LBL.YH + 20
-            self.SubmitBTN.frame.origin.y = self.MessageText.YH + 20
-            self.BackScroll.contentSize.height = self.SubmitBTN.YH + 20
+//            self.LBL.numberOfLines = 0
+//            self.LBL.sizeToFit()
+//            self.MessageText.frame.origin.y = self.LBL.YH + 20
+//            self.SubmitBTN.frame.origin.y = self.MessageText.YH + 20
+//            self.BackScroll.contentSize.height = self.SubmitBTN.YH + 20
         }
-        startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
+//        startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
         Alamofire.request("\(API_URL)getContactUsDetail", method: .get).responseJSON(completionHandler: { (response) in
             if response.result.error != nil
             {
-                ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
+                //ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
             }
             else
             {
@@ -50,6 +51,8 @@ class ContactUsVC: UIViewController, UITextViewDelegate, NVActivityIndicatorView
                     let Dict = responseDict.value(forKey: "response") as! NSDictionary
                     let decodedData = Data(base64Encoded: Dict.value(forKey: "contact_us") as! String)
                     do{
+                        self.MessageText.isHidden = false
+                        self.SubmitBTN.isHidden = false
                         let AttStr = try NSAttributedString(data: decodedData!, options: [NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType], documentAttributes: nil)
                         self.LBL.attributedText = AttStr
                         self.LBL.numberOfLines = 0
@@ -66,10 +69,10 @@ class ContactUsVC: UIViewController, UITextViewDelegate, NVActivityIndicatorView
                     ShowAlert(subTitle: responseDict.value(forKey: "message") as! String, viewController: self)
                 }
             }
-            
-            DispatchQueue.main.async {
-                self.stopAnimating()
-            }
+//            self.background.isHidden = true
+//            DispatchQueue.main.async {
+//                self.stopAnimating()
+//            }
         })
         
         // Do any additional setup after loading the view.
@@ -95,14 +98,22 @@ class ContactUsVC: UIViewController, UITextViewDelegate, NVActivityIndicatorView
             Alamofire.request("\(API_URL)contactUs", method: .post, parameters: params).responseJSON(completionHandler: { (response) in
                 if response.result.error != nil
                 {
-                    ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
+                    //ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
                 }
                 else
                 {
                     let responseDict = response.result.value as! NSDictionary
-//                    let ResponseCode = "\(responseDict.value(forKey: "code")!)"
+                    let ResponseCode = "\(responseDict.value(forKey: "code")!)"
+                    if ResponseCode == "200"
+                    {
+                        ShowAlert(subTitle: "Message sent successfully!", viewController: self)
+                    }
+                    else
+                    {
+                        ShowAlert(subTitle: responseDict.value(forKey: "message") as! String, viewController: self)
+                    }
 //                    print(responseDict)
-                    ShowAlert(subTitle: responseDict.value(forKey: "message") as! String, viewController: self)
+                    
                 }
                 self.stopAnimating()
             })

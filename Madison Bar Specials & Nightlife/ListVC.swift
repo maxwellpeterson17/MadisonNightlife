@@ -13,6 +13,7 @@ import Alamofire
 import SDWebImage
 class ListVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegate, UITableViewDataSource{
 
+    //@IBOutlet var background: UIImageView!
     @IBOutlet var DaysTBL: UITableView!
     @IBOutlet var NoDataLBL: UILabel!
     @IBOutlet var BarlistTBL: UITableView!
@@ -34,7 +35,7 @@ class ListVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegate
         DaysTBL.tableFooterView = UIView(frame: .zero)
         
         refereshControl.tintColor = UIColor.white
-        refereshControl.triggerVerticalOffset = 100
+//        refereshControl.triggerVerticalOffset = 100
         refereshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         BarlistTBL.addSubview(refereshControl)//bottomRefreshControl = refereshControl
         
@@ -46,6 +47,9 @@ class ListVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegate
         let calendar = Calendar.current
         let date = calendar.date(byAdding: .hour, value: -4, to: Date())
         day = Formater.string(from: date!)
+        
+        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(timerFire), userInfo: nil, repeats: true)
+        
         //print(day)
     }
 
@@ -63,12 +67,18 @@ class ListVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegate
         }
         else
         {
-            startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
+            //background.isHidden = false
+            //startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
             CallAPI()
         }
     }
 
     func refresh()
+    {
+        CallAPI()
+    }
+    
+    func timerFire()
     {
         CallAPI()
     }
@@ -85,7 +95,8 @@ class ListVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegate
             if BarListAry.count == 0
             {
 //                NoDataLBL.isHidden = false
-                startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
+                //startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
+                //background.isHidden = false
                 CallAPI()
             }
             DaysTBL.isHidden=true
@@ -101,7 +112,7 @@ class ListVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegate
         Alamofire.request("\(API_URL)getBarList/\(day.lowercased())", method: .get).responseJSON(completionHandler: { (response) in
             if response.result.error != nil
             {
-                ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
+                //ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
             }
             else
             {
@@ -133,7 +144,8 @@ class ListVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegate
             
             DispatchQueue.main.async {
                 self.BarlistTBL.reloadData()
-                self.stopAnimating()
+                //self.stopAnimating()
+                //self.background.isHidden = true
                 self.refereshControl.endRefreshing()
             }
         })

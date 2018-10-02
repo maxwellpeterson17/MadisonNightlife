@@ -95,7 +95,7 @@ extension UIImage {
 
 func ShowAlert(subTitle:String, viewController:UIViewController)
 {
-    let alert = UIAlertController(title: "Madison NL", message: subTitle, preferredStyle: .alert)
+    let alert = UIAlertController(title: "Madison Nightlife", message: subTitle, preferredStyle: .alert)
     let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
     alert.addAction(defaultAction)
     viewController.present(alert, animated: true, completion: nil)

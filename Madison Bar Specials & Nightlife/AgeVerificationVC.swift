@@ -78,7 +78,7 @@ class AgeVerificationVC: UIViewController, NVActivityIndicatorViewable {
                 Alamofire.request("\(API_URL)addUserDetail", method: .post, parameters: params).responseJSON { (response) in
                     if response.result.error != nil
                     {
-                        ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
+                        //ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
                     }
                     else
                     {

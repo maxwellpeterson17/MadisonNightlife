@@ -115,7 +115,7 @@ class AddEventVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             if checkbox.isChecked
             {
                 self.EventAry.append("BarEvent")
-                self.colorAry.append(AppThemeColor)
+                self.colorAry.append(UIColor(red: 255.0/255.0, green: 204.0/255.0, blue: 34.0/255.0, alpha: 1.0))
                 self.setColor()
             }
             else
@@ -136,15 +136,15 @@ class AddEventVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             //print(checkbox.isChecked)
             if checkbox.isChecked
             {
-                self.EventAry.append("GreekLife")
-                self.colorAry.append(UIColor(red: 255.0/255.0, green: 227.0/255.0, blue: 76.0/255.0, alpha: 1.0))
+                self.EventAry.append("Philanthropy")
+                self.colorAry.append(UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 79.0/255.0, alpha: 1.0))
                 self.setColor()
             }
             else
             {
                 for i in 0..<self.EventAry.count
                 {
-                    if self.EventAry[i] == "GreekLife"
+                    if self.EventAry[i] == "Philanthropy"
                     {
                         self.EventAry.remove(at: i)
                         self.colorAry.remove(at: i)
@@ -158,15 +158,15 @@ class AddEventVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             //print(checkbox.isChecked)
             if checkbox.isChecked
             {
-                self.EventAry.append("HouseParty")
-                self.colorAry.append(UIColor(red: 105.0/255.0, green: 180.0/255.0, blue: 255.0/255.0, alpha: 1.0))
+                self.EventAry.append("Party")
+                self.colorAry.append(UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0))
                 self.setColor()
             }
             else
             {
                 for i in 0..<self.EventAry.count
                 {
-                    if self.EventAry[i] == "HouseParty"
+                    if self.EventAry[i] == "Party"
                     {
                         self.EventAry.remove(at: i)
                         self.colorAry.remove(at: i)
@@ -203,7 +203,7 @@ class AddEventVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             if checkbox.isChecked
             {
                 self.EventAry.append("Sports")
-                self.colorAry.append(UIColor(red: 180.0/255.0, green: 255.0/255.0, blue: 105.0/255.0, alpha: 1.0))
+                self.colorAry.append(UIColor(red: 76.0/255.0, green: 217.0/255.0, blue: 100.0/255.0, alpha: 1.0))
                 self.setColor()
             }
             else
@@ -225,7 +225,7 @@ class AddEventVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             if checkbox.isChecked
             {
                 self.EventAry.append("Theater")
-                self.colorAry.append(UIColor(red: 255.0/255.0, green: 105.0/255.0, blue: 180.0/255.0, alpha: 1.0))
+                self.colorAry.append(UIColor(red: 255.0/255.0, green: 45.0/255.0, blue: 85.0/255.0, alpha: 1.0))
                 self.setColor()
             }
             else
@@ -247,7 +247,7 @@ class AddEventVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
             if checkbox.isChecked
             {
                 self.EventAry.append("Comedy")
-                self.colorAry.append(UIColor(red: 255.0/255.0, green: 105.0/255.0, blue: 180.0/255.0, alpha: 1.0))
+                self.colorAry.append(UIColor(red: 90.0/255.0, green: 200.0/255.0, blue: 250.0/255.0, alpha: 1.0))
                 self.setColor()
             }
             else
@@ -339,7 +339,7 @@ class AddEventVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
         viewController.dismiss(animated: true, completion: nil)
         if place.formattedAddress == nil
         {
-            UIAlertView(title: "Madison Bar Specials & Nightlife", message: "Please select valid event address.", delegate: self, cancelButtonTitle: "OK").show()
+            UIAlertView(title: "Madison NL", message: "Please select valid event address.", delegate: self, cancelButtonTitle: "OK").show()
         }
         else
         {
@@ -511,16 +511,21 @@ class AddEventVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 "event_bio":BioTextView.text!
                 ]
             print(params)
+            var event_image : UIImage!
+            if EventImageView.image != nil {
+                event_image = EventImageView.image!
+            }
             Alamofire.upload(multipartFormData: { (multipartFormData) in
-                if self.CheckImage == 1
-                {
-                    if let imageData = UIImageJPEGRepresentation(self.EventImageView.image!, 0.5)
+//                if self.CheckImage == 1
+//                {
+                    if event_image != nil
                     {
+                        let imageData = UIImageJPEGRepresentation(event_image, 0.5)
                         let TimeStamp = Date().timeIntervalSince1970 * 1000
                         print(TimeStamp)
-                        multipartFormData.append(imageData, withName: "event_image", fileName: "\(TimeStamp).png", mimeType: "image/png")
+                        multipartFormData.append(imageData!, withName: "event_image", fileName: "\(TimeStamp).png", mimeType: "image/png")
                     }
-                }
+//                }
                 
                 for (key, value) in params
                 {
@@ -538,7 +543,7 @@ class AddEventVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                         
                         if response.result.error != nil
                         {
-                            ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
+                           // ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
                         }
                         else
                         {
@@ -549,7 +554,7 @@ class AddEventVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                             {
                                 self.navigationController?.popViewController(animated: true)
                                 DispatchQueue.main.async {
-                                    ShowAlert(subTitle: "Your event will be examined quickly for approval. Thank you!", viewController: self)
+                                    ShowAlert(subTitle: "Your event has been submitted and will be reviewed shortly.", viewController: self)
                                 }
                             }
                             else
@@ -566,7 +571,7 @@ class AddEventVC: UIViewController, UINavigationControllerDelegate, UIImagePicke
                         }
                     }
                 case .failure(let encodingError):
-                    ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
+                    //ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
                     DispatchQueue.main.async {
                         self.stopAnimating()
                     }

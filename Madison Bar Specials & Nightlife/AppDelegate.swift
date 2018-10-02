@@ -12,6 +12,7 @@ import GoogleMaps
 import GooglePlaces
 import UserNotifications
 import Firebase
+import Alamofire
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
@@ -21,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         IQKeyboardManager.sharedManager().enable=true
-        GMSServices.provideAPIKey("AIzaSyCsScs8FR_AGMvJSqjNcbj5oeWVRgNNFwc")
-        GMSPlacesClient.provideAPIKey("AIzaSyCsScs8FR_AGMvJSqjNcbj5oeWVRgNNFwc")
+        GMSServices.provideAPIKey("AIzaSyCHeYsnQPxVjKWBs22VeycicFk3xGmZT5s")
+        GMSPlacesClient.provideAPIKey("AIzaSyCHeYsnQPxVjKWBs22VeycicFk3xGmZT5s")
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().barTintColor = AppThemeColor
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
@@ -49,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         application.registerForRemoteNotifications()
         
+        if Default.value(forKey: "device_token") != nil {
+            Token = Default.value(forKey: "device_token") as! String
+            registerToken()
+        }
 //        if Default.value(forKey: "CheckStudent") != nil
 //        {
 //            let Stry = UIStoryboard(name: "Main", bundle: nil)
@@ -62,11 +67,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     @objc func tokenRefreshNotification(_ notification: Foundation.Notification) {
         if let refreshedToken = InstanceID.instanceID().token() {
             Token = refreshedToken
+            Default.setValue(Token, forKey: "device_token")
+            registerToken()
         }
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().setAPNSToken(deviceToken, type: .prod)
+    }
+    
+    func registerToken()
+    {
+        let params = [
+            "device_token":Token,
+            "device_udid":OpenUDID.value()!,
+            "is_student":"1"
+        ]
+        print(params)
+        Alamofire.request("\(API_URL)addUserDetail", method: .post, parameters: params).responseJSON { (response) in }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

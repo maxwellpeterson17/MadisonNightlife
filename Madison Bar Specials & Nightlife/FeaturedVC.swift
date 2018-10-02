@@ -11,6 +11,7 @@ import NVActivityIndicatorView
 import Alamofire
 class FeaturedVC: UIViewController, NVActivityIndicatorViewable {
 
+    //@IBOutlet var background: UIImageView!
     @IBOutlet var NoLBL: UILabel!
     @IBOutlet var BackScroll: UIScrollView!
     @IBOutlet var GetTicketsBN: UIButton!
@@ -28,11 +29,11 @@ class FeaturedVC: UIViewController, NVActivityIndicatorViewable {
         Formater.dateFormat = "EEEE MM/d"
         TitleLBL.text = Formater.string(from: Date())
         
-        startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
+        //startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
         Alamofire.request("\(API_URL)getFutureDetail", method: .get).responseJSON { (response) in
             if response.result.error != nil
             {
-                ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
+                //ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
             }
             else
             {
@@ -59,7 +60,8 @@ class FeaturedVC: UIViewController, NVActivityIndicatorViewable {
                     ShowAlert(subTitle: responseDict.value(forKey: "message") as! String, viewController: self)
                 }
             }
-            self.stopAnimating()
+            //self.stopAnimating()
+           // self.background.isHidden = true
         }
         
         // Do any additional setup after loading the view.
@@ -76,7 +78,7 @@ class FeaturedVC: UIViewController, NVActivityIndicatorViewable {
         //print(dict)
         NoLBL.isHidden = true
         TitleLBL.isHidden = false
-        
+//        background.isHidden = true
         var YPoint : CGFloat = 0.0
         for i in 0..<FeaturedAry.count
         {

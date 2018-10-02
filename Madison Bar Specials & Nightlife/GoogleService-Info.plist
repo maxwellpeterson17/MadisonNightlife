@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>186786935532-gshl04ulgpfl3a1fj6fitciegeekb6mv.apps.googleusercontent.com</string>
+	<string>186786935532-saqs7g05ber2urge8g9av0ar4ca7co9r.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.186786935532-gshl04ulgpfl3a1fj6fitciegeekb6mv</string>
+	<string>com.googleusercontent.apps.186786935532-saqs7g05ber2urge8g9av0ar4ca7co9r</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDKNtNgDFm62956Gxnn8dRJYOr6jL4yDGw</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>NoTow</string>
+	<string>com.madisonbar</string>
 	<key>PROJECT_ID</key>
 	<string>madison-bar-specials</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:186786935532:ios:ff13c64b1f4bc26b</string>
+	<string>1:186786935532:ios:3970dd2543cbcb6c</string>
 	<key>DATABASE_URL</key>
 	<string>https://madison-bar-specials.firebaseio.com</string>
 </dict>

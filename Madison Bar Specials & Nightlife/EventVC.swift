@@ -11,8 +11,10 @@ import NVActivityIndicatorView
 import Alamofire
 import SDWebImage
 import CCBottomRefreshControl
+import MapKit
 class EventVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegate, UITableViewDataSource {
 
+    //@IBOutlet var background: UIImageView!
     @IBOutlet var NoDataLBL: UILabel!
     @IBOutlet var EventListTBL: UITableView!
     let cellID = "cell"
@@ -26,11 +28,11 @@ class EventVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegat
         EventListTBL.register(UITableViewCell.self, forCellReuseIdentifier: self.cellID)
         EventListTBL.tableFooterView = UIView(frame: .zero)
         refereshControl.tintColor = UIColor.white
-        refereshControl.triggerVerticalOffset = 100
+//        refereshControl.triggerVerticalOffset = 100
         refereshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         EventListTBL.addSubview(refereshControl)//bottomRefreshControl = refereshControl
         
-        
+        Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(timerFire), userInfo: nil, repeats: true)
         //self.navigationItem.title = "Events"
         
         // Do any additional setup after loading the view.
@@ -45,17 +47,24 @@ class EventVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegat
         self.navigationItem.title = "Events"
         if EventListAry.count == 0
         {
-            startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
+//            background.isHidden = false
+            //startAnimating(LoadeSize, type: NVActivityIndicatorType(rawValue: 3)!)
             CallAPI()
         }
         else
         {
+            //background.isHidden = true
             NoDataLBL.isHidden=true
             EventListTBL.reloadData()
         }
     }
     
     func refresh()
+    {
+        CallAPI()
+    }
+    
+    func timerFire()
     {
         CallAPI()
     }
@@ -73,7 +82,7 @@ class EventVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegat
         Alamofire.request("\(API_URL)getEventList", method: .get).responseJSON(completionHandler: { (response) in
             if response.result.error != nil
             {
-                ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
+                //ShowAlert(subTitle: "Please check your internet connection.", viewController: self)
             }
             else
             {
@@ -115,7 +124,8 @@ class EventVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegat
             }
             
             DispatchQueue.main.async {
-                self.stopAnimating()
+                //self.stopAnimating()
+//                self.background.isHidden = true
                 self.refereshControl.endRefreshing()
                 self.EventListTBL.reloadData()
             }
@@ -195,7 +205,7 @@ class EventVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegat
         
         let dayHourMinuteSecond: Set<Calendar.Component> = [.hour,.minute,.second]
         let difference = NSCalendar.current.dateComponents(dayHourMinuteSecond, from: Date(), to: date!)
-        if 3 >= difference.hour! && difference.hour! >= 0
+        if 50 >= difference.hour! && difference.hour! >= 0
         {
             if difference.second! >= 0
             {
@@ -299,19 +309,35 @@ class EventVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegat
         let EventLat = (EventListAry.object(at: indexPath.row) as AnyObject).value(forKey: "latitude") as! String
         let EventLong = (EventListAry.object(at: indexPath.row) as AnyObject).value(forKey: "longitude") as! String
         let locationStr = (EventListAry.object(at: indexPath.row) as AnyObject).value(forKey: "event_location") as! String
-        let EventName = (EventListAry.object(at: indexPath.row) as AnyObject).value(forKey: "event_name") as! String
+//        let EventName = (EventListAry.object(at: indexPath.row) as AnyObject).value(forKey: "event_name") as! String
         if locationStr.isEmpty == true
         {
             UIApplication.shared.openURL(URL(string:"http://maps.apple.com/?q=\(EventLat),\(EventLong)")!)
         }
         else
         {
-            let url = URL(string: "http://maps.apple.com/?q=\(EventName.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)")!
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
+//            let url = URL(string: "http://maps.apple.com/?q=\(locationStr.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)&center=\(EventLat),\(EventLong)")!
+//            if #available(iOS 10.0, *) {
+//                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//            } else {
+//                UIApplication.shared.openURL(url)
+//            }
+            
+//            let latitude: CLLocationDegrees = 37.2
+//            let longitude: CLLocationDegrees = 22.9
+            
+            let regionDistance:CLLocationDistance = 10000
+            let coordinates = CLLocationCoordinate2DMake(Double(EventLat)!, Double(EventLong)!)
+            let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = locationStr
+            mapItem.openInMaps(launchOptions: options)
+            
 //            UIApplication.shared.openURL()
         }
     }
@@ -346,13 +372,13 @@ class EventVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegat
             {
                 ary.append("Bar Event")
             }
-            else if strAry[i] == "GreekLife"
+            else if strAry[i] == "Philanthropy"
             {
-                ary.append("Greek Life")
+                ary.append("Philanthropy")
             }
-            else if strAry[i] == "HouseParty"
+            else if strAry[i] == "Party"
             {
-                ary.append("House Party")
+                ary.append("Party")
             }
             else
             {
@@ -372,15 +398,15 @@ class EventVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegat
         {
             if typeAry[0] == "BarEvent"
             {
-                return AppThemeColor
+                return UIColor(red: 255.0/255.0, green: 204.0/255.0, blue: 34.0/255.0, alpha: 1.0)
             }
-            else if typeAry[0] == "GreekLife"
+            else if typeAry[0] == "Philanthropy"
             {
-                return UIColor(red: 255.0/255.0, green: 227.0/255.0, blue: 76.0/255.0, alpha: 1.0)
+                return UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 79.0/255.0, alpha: 1.0)
             }
-            else if typeAry[0] == "HouseParty"
+            else if typeAry[0] == "Party"
             {
-                return UIColor(red: 105.0/255.0, green: 180.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+                return UIColor(red: 0.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1.0)
             }
             else if typeAry[0] == "Concert"
             {
@@ -388,15 +414,15 @@ class EventVC: UIViewController, NVActivityIndicatorViewable, UITableViewDelegat
             }
             else if typeAry[0] == "Sports"
             {
-                return UIColor(red: 180.0/255.0, green: 255.0/255.0, blue: 105.0/255.0, alpha: 1.0)
+                return UIColor(red: 76.0/255.0, green: 217.0/255.0, blue: 100.0/255.0, alpha: 1.0)
             }
             else if typeAry[0] == "Theater"
             {
-                return UIColor(red: 255.0/255.0, green: 105.0/255.0, blue: 180.0/255.0, alpha: 1.0)
+                return UIColor(red: 255.0/255.0, green: 45.0/255.0, blue: 85.0/255.0, alpha: 1.0)
             }
             else if typeAry[0] == "Comedy"
             {
-                return UIColor(red: 255.0/255.0, green: 105.0/255.0, blue: 180.0/255.0, alpha: 1.0)
+                return UIColor(red: 90.0/255.0, green: 200.0/255.0, blue: 250.0/255.0, alpha: 1.0)
             }
             else
             {
